@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import fetchJsonp from 'fetch-jsonp';
 
 class App extends Component {
   constructor(props) {
@@ -10,14 +11,31 @@ class App extends Component {
     }
   }
 
+  componentWillMount() {
+    const accessToken = window.location.hash.split("=")[1]
+    if (accessToken) {
+      console.log(`New access token: ${accessToken}`);
+      sessionStorage.setItem("token", accessToken);
+      this.setState({
+        token: accessToken
+      });
+    }
+  }
+
   changeDate() {
+    fetchJsonp(`https://api.instagram.com/v1/users/self/media/recent?access_token=${this.state.token}`)
+      .then((data) => {
+        return data.json();
+      }).then((json) => {
+        console.log(json);
+      });
+
     this.setState({
       date: new Date().toString()
     });
   }
 
   render() {
-    console.log(new Date().toString());
     return (
       <div className="App">
         <h2>{this.props.title}</h2>
