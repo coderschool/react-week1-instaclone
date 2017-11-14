@@ -12,6 +12,11 @@ class App extends Component {
   }
 
   componentWillMount() {
+    const existingToken = sessionStorage.getItem('token');
+    if (!accessToken && !existingToken) {
+      window.location.replace('https://www.instagram.com/oauth/authorize/?client_id=e80738afb2c44cb08b8b2f60a6748221&redirect_uri=http://localhost:3000/test&response_type=token')
+    }
+
     const accessToken = window.location.hash.split("=")[1]
     if (accessToken) {
       console.log(`New access token: ${accessToken}`);
