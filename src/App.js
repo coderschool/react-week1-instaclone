@@ -7,6 +7,7 @@ class App extends Component {
     console.log("test");
     return (
       <div className="App">
+        <h2>{this.props.title}</h2>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
