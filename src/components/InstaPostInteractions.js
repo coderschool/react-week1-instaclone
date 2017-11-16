@@ -6,12 +6,12 @@ export default class InstaPostInteractions extends React.Component {
   render () {
     const comments = this.props.comments.count ? (<li><a className="caption-more" href="#">View all {this.props.comments.count} comments</a></li>) : null;
 
+    const likeButton = this.props.user_has_liked ? (<a href="#" onClick={this.props.unlikePost}><span className="liked-button"></span></a>) : (<a href="#" onClick={this.props.likePost}><span className="like-button"></span></a>);
+
     return (
       <div className="Post-interactions">
-        <section className="toolbar">
-          <a href="#">
-            <span className="liked-button"></span>
-          </a>            
+        <section className="toolbar">          
+          {likeButton}
           <a href="#">
             <span className="comment-button"></span>
           </a>
