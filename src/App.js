@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import fetchJsonp from 'fetch-jsonp';
 import InstaList from './components/InstaList.js';
+import InstaBar from './components/InstaBar.js';
 
 class App extends Component {
   constructor(props) {
@@ -29,10 +30,10 @@ class App extends Component {
   }
 
   componentDidMount(){
-    this.changeDate.bind(this)();
+    this.loadData.bind(this)();
   }
 
-  changeDate() {
+  loadData() {
     this.setState({
       loading: true
     });
@@ -53,10 +54,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h2>{this.props.title}</h2>
-        <h2>{this.state.date}</h2>
+        <InstaBar date={this.state.date}/>
         <InstaList posts={this.state.posts} loading={this.state.loading}/>
-        <button onClick={this.changeDate.bind(this)}>Update</button>
       </div>
     );
   }

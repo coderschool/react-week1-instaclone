@@ -27,11 +27,13 @@ export default class InstaPostInteractions extends React.Component {
               <span>{this.props.comments.count} comments</span>
             </a>
           </div>
-        </section>        
-        <div>
-          <ul>
-          </ul>
-        </div>
+        </section>
+        <section className="comment-box">
+          <form>
+            <textarea placeholder="Add a comment...">
+            </textarea>
+          </form>
+        </section>
       </div>
     );
   }

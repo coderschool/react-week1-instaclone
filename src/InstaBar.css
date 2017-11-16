@@ -1,0 +1,77 @@
+.Bar {
+  background-color: rgb(255, 255, 255);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  border-bottom-color: rgba(0, 0, 0, 0.098);
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+
+.Bar .centered {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  max-width: 1010px;
+  height: 77px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  box-sizing: border-box;
+}
+
+.Bar .logo-wrapper {
+  width: 40%;
+}
+
+.Bar .logo {
+  display: block;
+  color: rgb(0, 53, 10);
+  background-image: url(https://www.instagram.com/static/bundles/sprite_core_2x.png/2f351c15a81e.png);
+  background-position-x: -176px;
+  background-position-y: 0px;
+  background-size: 395px 371px;
+  height: 35px;
+  width: 176px;  
+}
+
+.Bar .input-wrapper {
+  height: 28px;
+  width: 30%;
+}
+.Bar .input-wrapper input {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  border-radius: 3px;
+  border-color: rgb(219, 219, 219);
+  border-width: 1px;
+  border-style: solid;
+  padding: 10px;
+  white-space: pre-wrap;
+  writing-mode: horizontal-tb;  
+  word-wrap: break-word;
+  word-spacing: 0px;
+  outline-style: none;
+  resize: none;  
+}
+
+.Bar .self-wrapper {
+  width: 40%;
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.Bar .self {
+  display: block;
+  color: rgb(0, 53, 10);
+  background-image: url(https://www.instagram.com/static/bundles/sprite_core_2x.png/2f351c15a81e.png);
+  background-position-x: -353px;
+  background-position-y: -226px;
+  background-size: 395px 371px;
+  height: 24px;
+  width: 24px;
+}

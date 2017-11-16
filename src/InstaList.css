@@ -1,12 +1,14 @@
 .List-main {
   display: flex;
   background-color: rgb(250, 250, 250);
+  min-height: 100%
 }
 
 .List-section {
   display: flex;
   flex-direction: column;
   max-width: 600px;
+  padding-top: 60px;
   margin-left: auto;
   margin-right: auto;
 }

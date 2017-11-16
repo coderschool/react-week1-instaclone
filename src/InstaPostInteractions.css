@@ -2,7 +2,6 @@
   box-sizing: border-box;
   padding-left: 16px;
   padding-right: 16px;
-  height: 100px;
 }
 
 .Post-interactions .toolbar {
@@ -61,4 +60,44 @@
   text-decoration-line: none;
   font-size: 14px;
   font-weight: 600;  
+}
+
+.Post-interactions .comment-box {
+  line-height: 18px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  border-top-color: rgb(239, 239, 239);
+  border-top-width: 1px;
+  border-top-style: solid;
+  box-sizing: border-box;
+  margin-top: 8px;
+
+}
+
+.Post-interactions .comment-box form {
+  display: flex;
+  flex-direction: row;
+}
+
+.Post-interactions .comment-box textarea {
+  background-attachment: scroll;
+  display: flex;
+  flex-direction: column;  
+  width: 100%;
+  border-width: 0px;
+  white-space: pre-wrap;
+  writing-mode: horizontal-tb;  
+  word-wrap: break-word;
+  word-spacing: 0px;
+  outline-style: none;
+  resize: none;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  max-height: 80px;
+  padding: 0px;
+  flex-grow: 1;
+  -webkit-box-flex: 1;
 }

@@ -20,12 +20,11 @@ export default class InstaList extends React.Component {
 
     return (
       <main className="List-main">
-        <img src={logo} 
-             className="App-logo" 
-             alt="logo"
-             hidden={!this.props.loading}/>
-
         <section className="List-section">
+          <img src={logo} 
+               className="App-logo" 
+               alt="logo"
+               hidden={!this.props.loading}/>        
           {posts}
         </section>
       </main>
