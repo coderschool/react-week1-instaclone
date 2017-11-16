@@ -28,6 +28,10 @@ class App extends Component {
     }
   }
 
+  componentDidMount(){
+    this.changeDate.bind(this)();
+  }
+
   changeDate() {
     this.setState({
       loading: true

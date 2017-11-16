@@ -1,0 +1,33 @@
+.Post {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 50px;
+  border-color: rgb(230, 230, 230);
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px;
+  background-color: rgb(255, 255, 255);
+}
+
+.Post-header {
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  padding: 16px;
+}
+
+.Post-header-image {
+
+}
+
+.Post-header-name {
+  text-align: left;
+  margin-left: 20px;
+}
+
+.Post-profile-image {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
