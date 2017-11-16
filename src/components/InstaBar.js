@@ -14,7 +14,7 @@ export default class InstaBar extends React.Component {
             <input type="text" placeholder="Search tags..."></input>
           </div>
           <div className="self-wrapper">
-            <div><a href="/self/liked" className="self"></a></div>
+            <div><a href="/self" className="self"></a></div>
           </div>
         </div>
       </div>

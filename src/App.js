@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import InstaBar from './components/InstaBar.js';
 import InstaContainer from './components/InstaContainer.js';
+import InstaFriends from './components/InstaFriends.js';
 import {
   BrowserRouter as Router,
   Route
@@ -43,7 +44,11 @@ class App extends Component {
       <InstaContainer token={this.state.token} url="v1/users/self/media/recent" />
     );
 
-    const UserLiked = () => (
+    const Self = () => (
+      <InstaFriends token={this.state.token} url="v1/users/self"/>
+    );
+
+    const SelfLiked = () => (
       <InstaContainer token={this.state.token} url="v1/users/self/media/liked" />
     );
 
@@ -74,7 +79,8 @@ class App extends Component {
         <Router>
           <div>
             <Route exact path="/" component={Home} />
-            <Route exact path="/self/liked" component={UserLiked} />
+            <Route exact path="/self" component={Self} />
+            <Route exact path="/self/liked" component={SelfLiked} />
             <Route path="/user/:userId" component={UserFeed} />
             <Route path="/tag/:tag" component={TagFeed} />
             <Route path="/location/:location" component={LocationFeed} />

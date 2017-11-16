@@ -18,6 +18,7 @@ export default class InstaContainer extends React.Component {
     this.setState({
       loading: true
     });
+    
     fetchJsonp(`https://api.instagram.com/${this.props.url}?access_token=${this.props.token}`)
       .then((data) => {
         return data.json();
