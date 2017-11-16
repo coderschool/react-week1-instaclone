@@ -6,6 +6,7 @@ import '../InstaList.css';
 export default class InstaList extends React.Component {
 
   render() {
+    console.log(this.props.posts);
     const postsData = this.props.posts || {data: []};
 
     const posts = postsData.data.map((post) => {
