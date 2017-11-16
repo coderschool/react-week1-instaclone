@@ -8,13 +8,13 @@ export default class InstaBar extends React.Component {
       <div className="Bar">
         <div className="centered">
           <div className="logo-wrapper">
-            <a className="logo"></a>
+            <a className="logo" href="/"></a>
           </div>
           <div className="input-wrapper">
             <input type="text" placeholder="Search tags..."></input>
           </div>
           <div className="self-wrapper">
-            <div><a href="" className="self"></a></div>
+            <div><a href="/self/liked" className="self"></a></div>
           </div>
         </div>
       </div>
