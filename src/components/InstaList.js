@@ -18,6 +18,7 @@ export default class InstaList extends React.Component {
       }
       return (
         <InstaPost
+          token={this.props.token}
           key={post.id}
           unlikePost={unlikePost}
           likePost={likePost}

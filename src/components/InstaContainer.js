@@ -45,7 +45,7 @@ export default class InstaContainer extends React.Component {
 
   unlikePost(postId) {
     console.log(`Unliked ${postId}`)
-    fetch(`https://api.instagram.com/v1/media/${postId}/likes?access_token=${this.state.token}`, {method: "DELETE"})
+    fetch(`https://api.instagram.com/v1/media/${postId}/likes?access_token=${this.props.token}`, {method: "DELETE"})
       .then(() => {
         this.loadData()
       }).catch((e) => {
@@ -55,7 +55,8 @@ export default class InstaContainer extends React.Component {
 
   render() {
     return (
-      <InstaList 
+      <InstaList
+        token={this.props.token}
         posts={this.state.posts} 
         likePost={this.likePost.bind(this)}
         unlikePost={this.unlikePost.bind(this)}
