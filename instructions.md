@@ -396,6 +396,7 @@ We're going to link the API call into our data so that we're displaying real dat
 - Create a way to [like](https://www.instagram.com/developer/endpoints/likes/#post_likes) and [unlike](https://www.instagram.com/developer/endpoints/likes/#delete_likes) posts
 - Can you create something similar to the Instagram heart that toggles state?
 - Note: `DELETE` doesn't seem to work with implicit tokens.
+- You will need to request an access token with higher scope `scope=likes`.
 
 ## Bonus 3: Display different sets of photos
 
@@ -407,6 +408,7 @@ We're going to link the API call into our data so that we're displaying real dat
   - [locations](https://www.instagram.com/developer/endpoints/locations/)
 - Try using a router so that you can go to a particular url to access these different feeds
   - `yarn add react-router-dom`
+- You may need to request an access token with higher scope `scope=public_content`.
 
 ## Bonus 4: View a set of likes or comments
 
@@ -414,9 +416,11 @@ We're going to link the API call into our data so that we're displaying real dat
 - https://www.instagram.com/developer/endpoints/likes/
 - https://www.instagram.com/developer/endpoints/comments/
 - Display a modal of all the people who liked a media when clicking likes count.
-
+- You will need to request an access token with higher scope `scope=likes+comments`.
 
 ## Bonus 5: Profile page
 
 - Display a basic profile with a bunch of counts and your profile info
 - Display a modal of all the people who you follow or follow you
+- You will need to request an access token with higher scope `scope=follower_list+relationships`.
+
