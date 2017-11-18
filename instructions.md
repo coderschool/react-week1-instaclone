@@ -25,15 +25,15 @@ After you finish each checkpoint, switch the supervisor and driver roles. The pe
   - `index.js` => mounts your main application onto `public/index.html`
 
 - Add console.log() to render method
-App.js
-```
-class App extends Component {
-  render() {
-    console.log('App.render'); # add this
-    ...
+  **App.js**
+  ```
+  class App extends Component {
+    render() {
+      console.log('App.render'); # add this
+      ...
+    }
   }
-}
-```
+  ```
 
 - Open console
 
@@ -67,10 +67,12 @@ class App extends Component {
 ```
 ReactDOM.render(<App title="React test fallback"/>, document.getElementById('root'));
 ```
+
 - Check it out
 
 - Add a method to change this state
-App.js
+
+**App.js**
 ```
 const toggleTitle = () => {
   const newState = this.state.title ? null : 'Toggled state';
@@ -87,14 +89,15 @@ const toggleTitle = () => {
 
 - Click button
 
-== Milestone 3: Basic visuals using fake data ==
+## Milestone 3: Basic visuals using fake data
 
 - Create some fake JSON data re: the posts you want to show
   - Maybe 3 posts
   - Steal urls from Instagram
-    - Open up the chrome console and examine some urls
+    - Open up the Chrome console and examine the elements to find this. << Essential developer skill: stealing!
   - Fake up some JSON data to put into state
-App.js
+
+**App.js**
 ```
 this.state = {
   posts: [
@@ -111,7 +114,7 @@ this.state = {
 ```
 
 - Create InstaList.js
-InstaList.js
+**InstaList.js**
 ```
 import React from 'react';
 
@@ -125,14 +128,14 @@ export default class InstaList extends React.Component {
 ```
 
 - Link InstaList
-App.js
+**App.js**
 ```
 import InstaList from 'InstaList.js';
 ```
 ```
 <InstaList posts={this.state.posts}/>
 ```
-InstaList.js
+**InstaList.js**
 ```
 const posts = this.props.posts && this.props.posts.map((post) => {
   return (<img src={post.image}/>);
@@ -145,7 +148,7 @@ return (
 ```
 
 - Create InstaPost.js
-InstaPost.js
+**InstaPost.js**
 ```
 import React from 'react';
 
@@ -157,7 +160,7 @@ export default class InstaPost extends React.Component {
   }
 }
 ```
-InstaList.js
+**InstaList.js**
 ```
 import InstaPost from './InstaPost.js';
 ```
@@ -168,7 +171,7 @@ const posts = this.props.posts && this.props.posts.map((post) => {
 ```
 
 - Finish up InstaPost.js
-InstaPost.js
+**InstaPost.js**
 ```
 <div>
   <img src={this.props.image}/>
@@ -177,19 +180,18 @@ InstaPost.js
 </div>
 ```
 
-== Milestone 4: Sessions ==
+## Milestone 4: Sessions
 
 - Understand implicit OAuth flow => request a token, get back a token on redirect
   - Not explicit OAuth flow where it trades code for token
   - Need an access token to make any API call
 
-- Go to OAuth url
-https://www.instagram.com/oauth/authorize/?client_id=e80738afb2c44cb08b8b2f60a6748221&redirect_uri=http://localhost:3000&response_type=token
+- Go to [OAuth url](https://www.instagram.com/oauth/authorize/?client_id=e80738afb2c44cb08b8b2f60a6748221&redirect_uri=http://localhost:3000&response_type=token)
 
 - Note that it redirects to your localhost with a token in a hash
 
 - We want to store token in sessionStorage
-App.js
+**App.js**
 ```
 componentWillMount() {
   const key = 'token';
@@ -201,7 +203,7 @@ componentWillMount() {
 }  
 ```
 - redirect to OAuth url if we don't have a token
-App.js
+**App.js**
 ```
 if (!accessToken && !existingToken) {
   window.location.replace(oauthUrl);
@@ -227,15 +229,12 @@ if (existingToken) {
   });
 }
 ```
-  
-- Use state.token to make a single call
-  - Just console.log the results of this
 
-== Milestone 5: Link API call ==
+## Milestone 5: Link API call
 - Distinguish between containers and display components
 
 - Create a container component InstaContainer.js and rewire state
-InstaContainer.js
+**InstaContainer.js**
 ```
 import React from 'react';
 import InstaList from './InstaList.js';
@@ -255,7 +254,7 @@ export default class InstaContainer extends React.Component {
   }
 }
 ```
-App.js
+**App.js**
 ```
 import InstaContainer from './InstaContainer.js';
 -- import InstaList
@@ -270,10 +269,10 @@ constructor(props) {
 <InstaContainer token={this.state.token}/>
 ```
 
-- create a loadData method in the container
-`yarn add fetch-jsonp`
+- create a `loadData` method in the container
+  - `yarn add fetch-jsonp`
 
-InstaContainer.js
+**InstaContainer.js**
 ```
 import fetchJsonp from 'fetch-jsonp';
 ```
@@ -305,7 +304,7 @@ loadData() {
 ```
 
 - Link loading into display container
-InstaContainer.js
+**InstaContainer.js**
 ```
 render() {
   console.log(this.state.posts);
@@ -315,7 +314,7 @@ render() {
   );
 }
 ```
-InstaList.js
+**InstaList.js**
 ```
 import logo from './logo.svg';
 ```
@@ -334,7 +333,7 @@ return (
 - Check out loading dynamics
 
 - Link data into your display component
-InstaContainer.js
+**InstaContainer.js**
 ```
 render() {
   const posts = this.state.posts && this.state.posts.data;
@@ -343,13 +342,13 @@ render() {
   );
 }
 ```
-InstaPost.js
+**InstaPost.js**
 ```
 console.log(this.props);
 ```
 
 - Link data into InstaPost.js
-InstaPost.js
+  **InstaPost.js**
 ```
 <div>
   <img src={this.props.images.standard_resolution.url}/>
@@ -358,31 +357,34 @@ InstaPost.js
 </div>
 ```
 
-== Bonus 1: Make it look good ==
+## Bonus 1: Make it look good
 
 importing css and using css to style
 
-== Bonus 2: Like and unlike photos ==
+## Bonus 2: Like and unlike photos
 
 passing functions from container into display
 
-== Bonus 3: Display different sets of photos ==
+## Bonus 3: Display different sets of photos
 
-routing
+Learn routing
 
-- yarn add react-router-dom
+- `yarn add react-router-dom`
 - https://www.instagram.com/developer/endpoints/users/
   - self/liked
   - specific user
   - locations
   - tags
 
-== Bonus 4: Profile page ==
+## Bonus 4: View a set of likes or comments
 
-
-== Bonus 5: View a set of likes or comments ==
-
-- yarn add react-modal
+- `yarn add react-modal`
 - https://www.instagram.com/developer/endpoints/likes/
 - https://www.instagram.com/developer/endpoints/comments/
-- A list of 
+- Display a modal of all the people who liked a media when clicking likes count.
+
+
+## Bonus 5: Profile page
+
+- Display a basic profile with a bunch of counts and your profile info
+- Display a modal of all the people who you follow or follow you
