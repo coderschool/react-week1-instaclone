@@ -382,22 +382,31 @@ We're going to link the API call into our data so that we're displaying real dat
 
 ## Bonus 1: Make it look good
 
-importing css and using css to style
+- You can import css directly into React and have it scoped properly to a specific component.
+  ```
+  import 'App.css';
+  ```
+
+- Use this to style your components. Start with InstaPost.js.
+
+- You can also pull out more information from the post object to display.
 
 ## Bonus 2: Like and unlike photos
 
-passing functions from container into display
+- Create a way to [like](https://www.instagram.com/developer/endpoints/likes/#post_likes) and [unlike](https://www.instagram.com/developer/endpoints/likes/#delete_likes) posts
+- Can you create something similar to the Instagram heart that toggles state?
+- Note: `DELETE` doesn't seem to work with implicit tokens.
 
 ## Bonus 3: Display different sets of photos
 
-Learn routing
-
-- `yarn add react-router-dom`
-- https://www.instagram.com/developer/endpoints/users/
-  - self/liked
-  - specific user
-  - locations
-  - tags
+- Can you reuse InstaList to display different sets of photos based on API?
+- Try:
+  - media that [you've liked](https://www.instagram.com/developer/endpoints/users/#get_users_feed_liked)
+  - for a [specific user id](https://www.instagram.com/developer/endpoints/users/#get_users_media_recent)
+  - [tags](https://www.instagram.com/developer/endpoints/tags/)
+  - [locations](https://www.instagram.com/developer/endpoints/locations/)
+- Try using a router so that you can go to a particular url to access these different feeds
+  - `yarn add react-router-dom`
 
 ## Bonus 4: View a set of likes or comments
 
