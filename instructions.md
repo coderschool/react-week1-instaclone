@@ -19,12 +19,14 @@ After you finish each checkpoint, switch the supervisor and driver roles. The pe
 
 ## Milestone 2: Examine generated app
 
+Play around with the generated code to get a feel for the workflow and sandbox of React.
+
 - Look at generated code
   - `public/index.html` => the html needed
   - `App.js` => your main application
   - `index.js` => mounts your main application onto `public/index.html`
 
-- Add console.log() to render method
+- Add a simple `console.log()` to `render` method
 
   **App.js**
   ```
@@ -36,11 +38,7 @@ After you finish each checkpoint, switch the supervisor and driver roles. The pe
   }
   ```
 
-- Open console
-
-- Reload your page
-
-- See what happens
+- Open console, reload and see what happens
 
 - Add a button that changes state
   - Difference between props and state
@@ -88,9 +86,11 @@ After you finish each checkpoint, switch the supervisor and driver roles. The pe
   </a>
   ```
 
-- Click button
+- Click button. What happens with your `console.log` in the `render` method?
 
 ## Milestone 3: Basic visuals using fake data
+
+We're going to create components to display fake data.
 
 - Create some fake JSON data re: the posts you want to show
   - Maybe 3 posts
@@ -189,6 +189,8 @@ After you finish each checkpoint, switch the supervisor and driver roles. The pe
 
 ## Milestone 4: Sessions
 
+We're going to learn how to store an OAuth token so that we can access the Instagram API.
+
 - Understand implicit OAuth flow => request a token, get back a token on redirect
   - Not explicit OAuth flow where it trades code for token
   - Need an access token to make any API call
@@ -242,6 +244,9 @@ After you finish each checkpoint, switch the supervisor and driver roles. The pe
   ```
 
 ## Milestone 5: Link API call
+
+We're going to link the API call into our data so that we're displaying real data from Instagram.
+
 - Distinguish between containers and display components
 
 - Create a container component InstaContainer.js and rewire state
