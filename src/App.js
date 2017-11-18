@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './css/App.css';
 import InstaBar from './components/InstaBar.js';
 import InstaContainer from './components/InstaContainer.js';
 import InstaFriends from './components/InstaFriends.js';

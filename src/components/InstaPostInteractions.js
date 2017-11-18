@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
-import '../InstaPostInteractions.css';
+import '../css/InstaPostInteractions.css';
 import InstaLikes from './InstaLikes.js';
 
 export default class InstaPostInteractions extends React.Component {

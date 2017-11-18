@@ -1,7 +1,7 @@
 import React from 'react';
 import InstaPost from './InstaPost.js';
 import logo from '../logo.svg';
-import '../InstaList.css';
+import '../css/InstaList.css';
 
 export default class InstaList extends React.Component {
 

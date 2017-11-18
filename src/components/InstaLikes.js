@@ -1,5 +1,5 @@
 import React from 'react';
-import '../InstaPostInteractions.css';
+import '../css/InstaPostInteractions.css';
 
 export default class InstaLikes extends React.Component {
   constructor(props) {

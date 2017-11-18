@@ -1,5 +1,5 @@
 import React from 'react';
-import '../InstaBar.css';
+import '../css/InstaBar.css';
 
 export default class InstaBar extends React.Component {
 

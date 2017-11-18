@@ -1,5 +1,5 @@
 import React from 'react';
-import '../InstaPost.css';
+import '../css/InstaPost.css';
 import InstaPostInteractions from './InstaPostInteractions.js';
 
 const header = {
