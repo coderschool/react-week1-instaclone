@@ -1,4 +1,4 @@
-== Getting Started ==
+## Getting Started
 
 The checkpoints below should be implemented as pairs. In pair programming, there are two roles: supervisor and driver.
 
@@ -6,26 +6,24 @@ The supervisor makes the decision on what step to do next. Their job is to descr
 
 After you finish each checkpoint, switch the supervisor and driver roles. The person on the right will be the first supervisor.
 
-== Milestone 1: Setup ==
+## Milestone 1: Setup Instagram and create-react-app
 
-1) Setup Instagram and create-react-app
-  - https://www.instagram.com/developer/clients/register/
-    - Setup redirect to http://localhost:3000
-    - Add users to sandbox
-    - Enable implicit authentication
+- Register an [Instagram App](https://www.instagram.com/developer/clients/register/)
+  - Setup redirect to `http://localhost:3000`
+  - Add users to sandbox
+  - Enable implicit authentication
+- `npm install -g create-react-app`
+- `create-react-app instaclone`
+- `cd instaclone`
+- `yarn start`
 
-  - npm install -g create-react-app
-  - create-react-app instaclone
-  - yarn start
+## Milestone 2: Examine generated app
 
-== Milestone 2: Dynamics ==
+- Look at generated code
+  - `public/index.html` => the html needed
+  - `App.js` => your main application
+  - `index.js` => mounts your main application onto `public/index.html`
 
-Look at generated code
-- App.js => your main application
-- public/index.html => all the html needed
-- index.js => mounts your main application onto public/index.html
-
-Render method
 - Add console.log() to render method
 App.js
 ```
@@ -36,16 +34,20 @@ class App extends Component {
   }
 }
 ```
+
 - Open console
+
 - Reload your page
+
 - See what happens
 
-Add a button that changes state
-- Props and state
-- Let's have a title set by state with props as a fallback
+- Add a button that changes state
+  - Difference between props and state
+  - Let's have a title set by state with props as a fallback
 
 - Constructor to set state
-App.js
+
+**App.js**
 ```
   constructor(props) {
     super(props)
@@ -53,12 +55,15 @@ App.js
     }
   }
 ```
+
 - Add a display for this state and add fallback prop
-App.js
+
+**App.js**
 ```
 <h1 className="App-title">{this.state.title || this.props.title}</h1>
 ```
-index.js
+
+**index.js**
 ```
 ReactDOM.render(<App title="React test fallback"/>, document.getElementById('root'));
 ```
@@ -125,7 +130,7 @@ App.js
 import InstaList from 'InstaList.js';
 ```
 ```
-  <InstaList posts={this.state.posts}/>
+<InstaList posts={this.state.posts}/>
 ```
 InstaList.js
 ```
