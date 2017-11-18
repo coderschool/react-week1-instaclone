@@ -25,6 +25,7 @@ After you finish each checkpoint, switch the supervisor and driver roles. The pe
   - `index.js` => mounts your main application onto `public/index.html`
 
 - Add console.log() to render method
+
   **App.js**
   ```
   class App extends Component {
