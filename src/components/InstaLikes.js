@@ -53,6 +53,7 @@ export default class InstaLikes extends React.Component {
 
     return (
       <div>
+        
         {likes}
       </div>
     );
