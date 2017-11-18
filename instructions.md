@@ -48,45 +48,45 @@ After you finish each checkpoint, switch the supervisor and driver roles. The pe
 
 - Constructor to set state
 
-**App.js**
-```
-  constructor(props) {
-    super(props)
-    this.state = {
+  **App.js**
+  ```
+    constructor(props) {
+      super(props)
+      this.state = {
+      }
     }
-  }
-```
+  ```
 
 - Add a display for this state and add fallback prop
 
-**App.js**
-```
-<h1 className="App-title">{this.state.title || this.props.title}</h1>
-```
+  **App.js**
+  ```
+  <h1 className="App-title">{this.state.title || this.props.title}</h1>
+  ```
 
-**index.js**
-```
-ReactDOM.render(<App title="React test fallback"/>, document.getElementById('root'));
-```
+  **index.js**
+  ```
+  ReactDOM.render(<App title="React test fallback"/>, document.getElementById('root'));
+  ```
 
 - Check it out
 
 - Add a method to change this state
 
-**App.js**
-```
-const toggleTitle = () => {
-  const newState = this.state.title ? null : 'Toggled state';
-  this.setState({
-    title: newState
-  });
-}
-```
-```
-<a href="#" onClick={toggleTitle}>
-  <img src={logo} className="App-logo" alt="logo" />
-</a>
-```
+  **App.js**
+  ```
+  const toggleTitle = () => {
+    const newState = this.state.title ? null : 'Toggled state';
+    this.setState({
+      title: newState
+    });
+  }
+  ```
+  ```
+  <a href="#" onClick={toggleTitle}>
+    <img src={logo} className="App-logo" alt="logo" />
+  </a>
+  ```
 
 - Click button
 
@@ -98,88 +98,94 @@ const toggleTitle = () => {
     - Open up the Chrome console and examine the elements to find this. << Essential developer skill: stealing!
   - Fake up some JSON data to put into state
 
-**App.js**
-```
-this.state = {
-  posts: [
-    {
-      id: 1,
-      image: "https://instagram.fsgn4-1.fna.fbcdn.net/t51.2885-15/e35/23594930_126440671464105_1598861271686447104_n.jpg",
-      caption: "#Fall #celebrations at #home, as we are giving thanks to friends, family, and work accomplishments- and an #abundant life.",
-      likes: 25
-    },
-    {...},
-    {...}
-  ]
-}
-```
+  **App.js**
+  ```
+  this.state = {
+    posts: [
+      {
+        id: 1,
+        image: "https://instagram.fsgn4-1.fna.fbcdn.net/t51.2885-15/e35/23594930_126440671464105_1598861271686447104_n.jpg",
+        caption: "#Fall #celebrations at #home, as we are giving thanks to friends, family, and work accomplishments- and an #abundant life.",
+        likes: 25
+      },
+      {...},
+      {...}
+    ]
+  }
+  ```
 
 - Create InstaList.js
-**InstaList.js**
-```
-import React from 'react';
 
-export default class InstaList extends React.Component {
-  render() {
-    return (
-      <h2>Hi</h2>
-    );
+  **InstaList.js**
+  ```
+  import React from 'react';
+
+  export default class InstaList extends React.Component {
+    render() {
+      return (
+        <h2>Hi</h2>
+      );
+    }
   }
-}
-```
+  ```
 
 - Link InstaList
-**App.js**
-```
-import InstaList from 'InstaList.js';
-```
-```
-<InstaList posts={this.state.posts}/>
-```
-**InstaList.js**
-```
-const posts = this.props.posts && this.props.posts.map((post) => {
-  return (<img src={post.image}/>);
-});
-return (
-  <div>
-  {posts}
-  </div>
-);
-```
+
+  **App.js**
+  ```
+  import InstaList from 'InstaList.js';
+  ```
+  ```
+  <InstaList posts={this.state.posts}/>
+  ```
+
+  **InstaList.js**
+  ```
+  const posts = this.props.posts && this.props.posts.map((post) => {
+    return (<img src={post.image}/>);
+  });
+  return (
+    <div>
+    {posts}
+    </div>
+  );
+  ```
 
 - Create InstaPost.js
-**InstaPost.js**
-```
-import React from 'react';
 
-export default class InstaPost extends React.Component {
-  render() {
-    return (
-      <img src={this.props.image}/>
-    );
+  **InstaPost.js**
+  ```
+  import React from 'react';
+
+  export default class InstaPost extends React.Component {
+    render() {
+      return (
+        <img src={this.props.image}/>
+      );
+    }
   }
-}
-```
-**InstaList.js**
-```
-import InstaPost from './InstaPost.js';
-```
-```
-const posts = this.props.posts && this.props.posts.map((post) => {
-  return (<InstaPost {...post} />);
-});
-```
+  ```
+
+  **InstaList.js**
+  ```
+  import InstaPost from './InstaPost.js';
+  ```
+  ```
+  const posts = this.props.posts && this.props.posts.map((post) => {
+    return (<InstaPost {...post} />);
+  });
+  ```
 
 - Finish up InstaPost.js
-**InstaPost.js**
-```
-<div>
-  <img src={this.props.image}/>
-  <p>{this.props.caption}</p>
-  <p>{this.props.likes} Likes</p>
-</div>
-```
+
+  **InstaPost.js**
+  ```
+  <div>
+    <img src={this.props.image}/>
+    <p>{this.props.caption}</p>
+    <p>{this.props.likes} Likes</p>
+  </div>
+  ```
 
 ## Milestone 4: Sessions
 
@@ -192,171 +198,182 @@ const posts = this.props.posts && this.props.posts.map((post) => {
 - Note that it redirects to your localhost with a token in a hash
 
 - We want to store token in sessionStorage
-**App.js**
-```
-componentWillMount() {
-  const key = 'token';
-  console.log('mounted');
-  const existingToken = sessionStorage.getItem(key);
-  console.log(existingToken);
-  const accessToken = window.location.hash.split("=")[1];
-  console.log(accessToken);
-}  
-```
+
+  **App.js**
+  ```
+  componentWillMount() {
+    const key = 'token';
+    console.log('mounted');
+    const existingToken = sessionStorage.getItem(key);
+    console.log(existingToken);
+    const accessToken = window.location.hash.split("=")[1];
+    console.log(accessToken);
+  }  
+  ```
 - redirect to OAuth url if we don't have a token
-**App.js**
-```
-if (!accessToken && !existingToken) {
-  window.location.replace(oauthUrl);
-}
-```
+
+  **App.js**
+  ```
+  if (!accessToken && !existingToken) {
+    window.location.replace(oauthUrl);
+  }
+  ```
 
 - If we got a new access token
-```
-if (accessToken) {
-  console.log(`New access token: ${accessToken}`);
-  sessionStorage.setItem("token", accessToken);
-  this.setState({
-    token: accessToken
-  });
-}
-```
+
+  ```
+  if (accessToken) {
+    console.log(`New access token: ${accessToken}`);
+    sessionStorage.setItem("token", accessToken);
+    this.setState({
+      token: accessToken
+    });
+  }
+  ```
 
 - Set state if we have in sessionStorage
-```
-if (existingToken) {
-  this.setState({
-    token: existingToken
-  });
-}
-```
+
+  ```
+  if (existingToken) {
+    this.setState({
+      token: existingToken
+    });
+  }
+  ```
 
 ## Milestone 5: Link API call
 - Distinguish between containers and display components
 
 - Create a container component InstaContainer.js and rewire state
-**InstaContainer.js**
-```
-import React from 'react';
-import InstaList from './InstaList.js';
 
-export default class InstaContainer extends React.Component {
+  **InstaContainer.js**
+  ```
+  import React from 'react';
+  import InstaList from './InstaList.js';
+
+  export default class InstaContainer extends React.Component {
+    constructor(props) {
+      super(props)
+      this.state = {
+        posts: [...]
+      }
+    }  
+
+    render() {
+      return (
+        <InstaList posts={this.state.posts}/>
+      );
+    }
+  }
+  ```
+
+  **App.js**
+  ```
+  import InstaContainer from './InstaContainer.js';
+  -- import InstaList
+  ```
+  ```
   constructor(props) {
     super(props)
-    this.state = {
-      posts: [...]
-    }
-  }  
-
-  render() {
-    return (
-      <InstaList posts={this.state.posts}/>
-    );
+    this.state = {};
   }
-}
-```
-**App.js**
-```
-import InstaContainer from './InstaContainer.js';
--- import InstaList
-```
-```
-constructor(props) {
-  super(props)
-  this.state = {};
-}
-```
-```
-<InstaContainer token={this.state.token}/>
-```
+  ```
+  ```
+  <InstaContainer token={this.state.token}/>
+  ```
 
 - create a `loadData` method in the container
   - `yarn add fetch-jsonp`
 
-**InstaContainer.js**
-```
-import fetchJsonp from 'fetch-jsonp';
-```
-```
-this.state = {};
-```
+  **InstaContainer.js**
+  ```
+  import fetchJsonp from 'fetch-jsonp';
+  ```
+  ```
+  this.state = {};
+  ```
 
-https://www.instagram.com/developer/endpoints/users/
-```
-componentWillMount() {
-  this.loadData.bind(this)();
-}
+  https://www.instagram.com/developer/endpoints/users/
+  ```
+  componentWillMount() {
+    this.loadData.bind(this)();
+  }
 
-loadData() {
-    this.setState({
-      loading: true
-    });
-    
-    fetchJsonp(`https://api.instagram.com/v1/users/self/media/recent?access_token=${this.props.token}`)
-      .then((data) => {
-        return data.json();
-      }).then((json) => {
-        this.setState({
-          posts: json,
-          loading: false
-        })
-      });  
-}
-```
+  loadData() {
+      this.setState({
+        loading: true
+      });
+      
+      fetchJsonp(`https://api.instagram.com/v1/users/self/media/recent?access_token=${this.props.token}`)
+        .then((data) => {
+          return data.json();
+        }).then((json) => {
+          this.setState({
+            posts: json,
+            loading: false
+          })
+        });  
+  }
+  ```
 
 - Link loading into display container
-**InstaContainer.js**
-```
-render() {
-  console.log(this.state.posts);
+
+  **InstaContainer.js**
+  ```
+  render() {
+    console.log(this.state.posts);
+    return (
+      <InstaList 
+        posts={[]} loading={this.state.loading} />
+    );
+  }
+  ```
+
+  **InstaList.js**
+  ```
+  import logo from './logo.svg';
+  ```
+  ```
   return (
-    <InstaList 
-      posts={[]} loading={this.state.loading} />
+    <div>
+      <img src={logo} 
+               className="App-logo" 
+               alt="logo"
+               hidden={!this.props.loading}/> 
+      {posts}
+    </div>
   );
-}
-```
-**InstaList.js**
-```
-import logo from './logo.svg';
-```
-```
-return (
-  <div>
-    <img src={logo} 
-             className="App-logo" 
-             alt="logo"
-             hidden={!this.props.loading}/> 
-    {posts}
-  </div>
-);
-```
+  ```
 
 - Check out loading dynamics
 
 - Link data into your display component
-**InstaContainer.js**
-```
-render() {
-  const posts = this.state.posts && this.state.posts.data;
-  return (
-    <InstaList posts={posts} loading={this.state.loading}/>
-  );
-}
-```
-**InstaPost.js**
-```
-console.log(this.props);
-```
+
+  **InstaContainer.js**
+  ```
+  render() {
+    const posts = this.state.posts && this.state.posts.data;
+    return (
+      <InstaList posts={posts} loading={this.state.loading}/>
+    );
+  }
+  ```
+
+  **InstaPost.js**
+  ```
+  console.log(this.props);
+  ```
 
 - Link data into InstaPost.js
+
   **InstaPost.js**
-```
-<div>
-  <img src={this.props.images.standard_resolution.url}/>
-  <p>{this.props.caption.text}</p>
-  <p>{this.props.likes.count} Likes</p>
-</div>
-```
+  ```
+  <div>
+    <img src={this.props.images.standard_resolution.url}/>
+    <p>{this.props.caption.text}</p>
+    <p>{this.props.likes.count} Likes</p>
+  </div>
+  ```
 
 ## Bonus 1: Make it look good
 
