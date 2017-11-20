@@ -133,7 +133,7 @@ We're going to create components to display fake data.
 
   **App.js**
   ```
-  import InstaList from 'InstaList.js';
+  import InstaList from './InstaList.js';
   ```
   ```
   <InstaList posts={this.state.posts}/>
@@ -196,6 +196,7 @@ We're going to learn how to store an OAuth token so that we can access the Insta
   - Need an access token to make any API call
 
 - Go to [OAuth url](https://www.instagram.com/oauth/authorize/?client_id=e80738afb2c44cb08b8b2f60a6748221&redirect_uri=http://localhost:3000&response_type=token)
+- Replace `client_id` with your client id from [Instagram](https://www.instagram.com/developer/clients/manage/)
 
 - Note that it redirects to your localhost with a token in a hash
 
