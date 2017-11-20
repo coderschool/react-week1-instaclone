@@ -12,6 +12,9 @@ After you finish each checkpoint, switch the supervisor and driver roles. The pe
   - Setup redirect to `http://localhost:3000`
   - Add users to sandbox
   - Enable implicit authentication
+
+![Alt](images/ScreenM1.png)
+
 - `npm install -g create-react-app`
 - `create-react-app instaclone`
 - `cd instaclone`
@@ -39,6 +42,8 @@ Play around with the generated code to get a feel for the workflow and sandbox o
   ```
 
 - Open console, reload and see what happens
+
+![Alt](images/ScreenM2.png)
 
 - Add a button that changes state
   - Difference between props and state
@@ -69,6 +74,8 @@ Play around with the generated code to get a feel for the workflow and sandbox o
 
 - Check it out
 
+![Alt](images/ScreenM2a.png)
+
 - Add a method to change this state
 
   **App.js**
@@ -87,6 +94,8 @@ Play around with the generated code to get a feel for the workflow and sandbox o
   ```
 
 - Click button. What happens with your `console.log` in the `render` method?
+
+![Alt](images/ScreenM2b.png)
 
 ## Milestone 3: Basic visuals using fake data
 
@@ -129,6 +138,8 @@ We're going to create components to display fake data.
   }
   ```
 
+![Alt](images/ScreenM3.png)
+
 - Link InstaList
 
   **App.js**
@@ -166,6 +177,8 @@ We're going to create components to display fake data.
   }
   ```
 
+![Alt](images/ScreenM3a.png)
+
   **InstaList.js**
   ```
   import InstaPost from './InstaPost.js';
@@ -187,6 +200,8 @@ We're going to create components to display fake data.
   </div>
   ```
 
+![Alt](images/ScreenM3b.png)
+
 ## Milestone 4: Sessions
 
 We're going to learn how to store an OAuth token so that we can access the Instagram API.
@@ -197,6 +212,8 @@ We're going to learn how to store an OAuth token so that we can access the Insta
 
 - Go to [OAuth url](https://www.instagram.com/oauth/authorize/?client_id=e80738afb2c44cb08b8b2f60a6748221&redirect_uri=http://localhost:3000&response_type=token)
 - Replace `client_id` with your client id from [Instagram](https://www.instagram.com/developer/clients/manage/)
+
+![Alt](images/ScreenM4.png)
 
 - Note that it redirects to your localhost with a token in a hash
 
@@ -211,23 +228,28 @@ We're going to learn how to store an OAuth token so that we can access the Insta
     console.log(existingToken);
     const accessToken = window.location.hash.split("=")[1];
     console.log(accessToken);
-  }  
+  }
   ```
 - redirect to OAuth url if we don't have a token
 
   **App.js**
   ```
+  // Replace with your URL
+  const oauthUrl = "https://www.instagram.com/oauth/authorize/?client_id=e80738afb2c44cb08b8b2f60a6748221&redirect_uri=http://localhost:3000&response_type=token";
+
   if (!accessToken && !existingToken) {
     window.location.replace(oauthUrl);
   }
   ```
+
+![Alt](images/ScreenM4a.png)
 
 - If we got a new access token
 
   ```
   if (accessToken) {
     console.log(`New access token: ${accessToken}`);
-    sessionStorage.setItem("token", accessToken);
+    sessionStorage.setItem(key, accessToken);
     this.setState({
       token: accessToken
     });
@@ -243,6 +265,8 @@ We're going to learn how to store an OAuth token so that we can access the Insta
     });
   }
   ```
+
+![Alt](images/ScreenM4b.png)
 
 ## Milestone 5: Link API call
 
@@ -352,6 +376,7 @@ We're going to link the API call into our data so that we're displaying real dat
   ```
 
 - Check out loading dynamics
+  - Should briefly display loading spinner then go away.
 
 - Link data into your display component
 
@@ -380,6 +405,8 @@ We're going to link the API call into our data so that we're displaying real dat
     <p>{this.props.likes.count} Likes</p>
   </div>
   ```
+
+![Alt](images/ScreenM5.png)
 
 ## Bonus 1: Make it look good
 
