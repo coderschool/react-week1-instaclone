@@ -1,15 +1,14 @@
 import React from 'react';
 import '../css/InstaPost.css';
 import InstaPostInteractions from './InstaPostInteractions.js';
+import _ from 'lodash';
 
 const header = {
   height: "60px"
 }
 
 export default class InstaPost extends React.Component {
-
   render() {
-    console.log(this.props);
     const location = this.props.location ? (<div className="location"><a href={`/location/${this.props.location.id}`}>{this.props.location.name}</a></div>) : null;
     return (
       <article className="Post">

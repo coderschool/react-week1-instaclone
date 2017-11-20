@@ -15,9 +15,6 @@ export default class InstaPostInteractions extends React.Component {
 
   render () {
     const comments = this.props.comments.count ? (<li><a className="caption-more" href="#">View all {this.props.comments.count} comments</a></li>) : null;
-
-    const likeButton = this.props.user_has_liked ? (<a href="#" onClick={this.props.unlikePost}><span className="liked-button"></span></a>) : (<a href="#" onClick={this.props.likePost}><span className="like-button"></span></a>);
-
           // onAfterOpen={afterOpenFn}
           
           // closeTimeoutMS={n}
@@ -31,8 +28,17 @@ export default class InstaPostInteractions extends React.Component {
       this.setState({
         modal: false
       });
-    };    
+    };
 
+    const toggleLike = () => {
+      this.setState({
+        likeOverride: !this.state.likeOverride
+      });
+    };
+
+    const liked = (this.state.likeOverride === undefined) ? this.props.user_has_liked : this.state.likeOverride;
+    const likeButton = liked ? (<a href="#" onClick={toggleLike}><span className="liked-button"></span></a>) : (<a href="#" onClick={toggleLike}><span className="like-button"></span></a>);
+    
     const style = {
       overlay: {
         top               : 0,
@@ -73,7 +79,7 @@ export default class InstaPostInteractions extends React.Component {
         <section className="caption">
           <ul>
             <li>
-              <a className="caption-user" href="#">{this.props.user.username}</a> 
+              <a className="caption-user" href={`/user/${this.props.user.id}`}>{this.props.user.username}</a> 
               <span>{this.props.caption.text}</span>
             </li>
             {comments}

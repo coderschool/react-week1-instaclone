@@ -1,0 +1,66 @@
+.Profile {
+}
+
+.Profile article {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 50px;
+}
+
+.Profile header {
+  display: flex;
+  flex-direction: row;  
+}
+
+.Profile .image {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.Profile .image img {
+  border-radius: 50%;
+  width: 152px;
+  height: 152px;
+}
+
+.Profile .name {
+  display: flex;
+  flex-direction: row;
+}
+
+.Profile .fullname {
+  display: flex;
+  flex-direction: row;
+  font-weight: 600;
+}
+
+.Profile .counts {
+  display: flex;
+  flex-direction: row;  
+}
+
+.Profile .counts ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.Profile .counts li {
+  float: left;
+  text-align: left;
+  margin-right: 40px;
+}
+
+.Profile .counts li a {
+  text-decoration: none;
+  color: rgb(38, 38, 38);
+}
+
+.Profile .counts li span {
+  font-weight: 600;
+}
+
+.Profile .counts {
+  display: flex;
+  flex-direction: row;
+}
