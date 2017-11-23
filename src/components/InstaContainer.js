@@ -10,7 +10,6 @@ export default class InstaContainer extends React.Component {
   }
 
   componentDidMount(){
-    console.log("mounted");
     this.loadData.bind(this)();
   }
 
