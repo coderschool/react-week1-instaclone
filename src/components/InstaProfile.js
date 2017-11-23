@@ -3,8 +3,6 @@ import '../css/InstaProfile.css';
 
 export default class InstaProfile extends React.Component {
   render() {
-    console.log(this.props);
-
     return (
       <div className="Profile">
         <article>

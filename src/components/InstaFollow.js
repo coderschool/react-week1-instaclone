@@ -5,7 +5,7 @@ export default class InstaFollow extends React.Component {
   render() {
     const followedBy = this.props.friends && this.props.friends.map((friend) => {
       return (
-        <div className="Post-header">
+        <div key={friend.id} className="Post-header">
           <div className="Post-header-image">
             <img 
               className="Post-profile-image"

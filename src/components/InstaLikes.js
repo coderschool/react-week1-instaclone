@@ -28,8 +28,6 @@ export default class InstaLikes extends React.Component {
   }
 
   render() {
-    console.log(this.state.likes);
-
     const likes = this.state.likes && this.state.likes.map((like) => {
       return (
         <div className="Post-header">

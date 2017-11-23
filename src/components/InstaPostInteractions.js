@@ -7,7 +7,8 @@ export default class InstaPostInteractions extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      modal: false
+      modal: false,
+      likeOverride: this.props.user_has_liked
     }
   }
 
@@ -15,28 +16,28 @@ export default class InstaPostInteractions extends React.Component {
 
   render () {
     const comments = this.props.comments.count ? (<li><a className="caption-more" href="#">View all {this.props.comments.count} comments</a></li>) : null;
-          // onAfterOpen={afterOpenFn}
-          
-          // closeTimeoutMS={n}
-    const openModal = () => {
+    const openModal = (e) => {
+      e.preventDefault();
       this.setState({
         modal: true
       });
     };
 
-    const closeModal = () => {
+    const closeModal = (e) => {
+      e.preventDefault();
       this.setState({
         modal: false
       });
     };
 
-    const toggleLike = () => {
+    const toggleLike = (e) => {
+      e.preventDefault();
       this.setState({
         likeOverride: !this.state.likeOverride
       });
     };
 
-    const liked = (this.state.likeOverride === undefined) ? this.props.user_has_liked : this.state.likeOverride;
+    const liked = this.state.likeOverride;
     const likeButton = liked ? (<a href="#" onClick={toggleLike}><span className="liked-button"></span></a>) : (<a href="#" onClick={toggleLike}><span className="like-button"></span></a>);
     
     const style = {

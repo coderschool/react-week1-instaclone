@@ -15,7 +15,6 @@ export default class InstaFriends extends React.Component {
   }
 
   componentDidMount(){
-    console.log("mounted");
     this.loadData.bind(this)();
   }
 
@@ -78,7 +77,8 @@ export default class InstaFriends extends React.Component {
     var followedByData = this.state.followedBy || {data: []};
     followedByData = followedByData.data;
 
-    const openModalFollowedBy = () => {
+    const openModalFollowedBy = (e) => {
+      e.preventDefault();
       this.loadFollowedBy();
       this.setState({
         modal: true,
@@ -87,7 +87,8 @@ export default class InstaFriends extends React.Component {
       });
     };
 
-    const openModalFollows = () => {
+    const openModalFollows = (e) => {
+      e.preventDefault();      
       this.loadFollows();
       this.setState({
         modal: true,
@@ -96,7 +97,8 @@ export default class InstaFriends extends React.Component {
       });
     };    
 
-    const closeModal = () => {
+    const closeModal = (e) => {
+      e.preventDefault();
       this.setState({
         modal: false
       });
