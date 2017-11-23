@@ -12,6 +12,7 @@ After you finish each checkpoint, switch the supervisor and driver roles. The pe
   - Setup redirect to `http://localhost:3000`
   - Add users to sandbox
   - Enable implicit authentication
+  - Disable "Enforce signed requests"
 
 ![Alt](images/ScreenM1.png)
 
@@ -80,7 +81,8 @@ Play around with the generated code to get a feel for the workflow and sandbox o
 
   **App.js**
   ```
-  const toggleTitle = () => {
+  const toggleTitle = (e) => {
+    e.preventDefault();
     const newState = this.state.title ? null : 'Toggled state';
     this.setState({
       title: newState
